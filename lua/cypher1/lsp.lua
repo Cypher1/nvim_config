@@ -30,6 +30,27 @@ require('mason-lspconfig').setup({
                 capabilities = lsp_capabilities,
             })
         end,
+        pylsp = function()
+            require('lspconfig').pylsp.setup({
+                capabilities = lsp_capabilities,
+                settings = {
+                    pylsp = {
+                      plugins = {
+                        pycodestyle = {
+                          enabled = true,
+                          ignore = "E501,C901",
+                        },
+                        mccabe = { enabled = false },
+                        flake8 = {
+                          enabled = true,
+                          ignore = "E501,C901",
+                        },
+                        ruff = { enabled = false },
+                      }
+                    }
+                }
+            })
+        end,
         lua_ls = function()
             require('lspconfig').lua_ls.setup({
                 capabilities = lsp_capabilities,
