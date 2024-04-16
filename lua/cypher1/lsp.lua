@@ -38,12 +38,12 @@ require('mason-lspconfig').setup({
                       plugins = {
                         pycodestyle = {
                           enabled = true,
-                          ignore = "E501,C901",
+                          ignore = "W503,E501,C901",
                         },
                         mccabe = { enabled = false },
                         flake8 = {
                           enabled = true,
-                          ignore = "E501,C901",
+                          ignore = "W503,E501,C901",
                         },
                         ruff = { enabled = false },
                       }
@@ -89,10 +89,11 @@ cmp.setup({
         {name = 'buffer', keyword_length = 3},
     },
     mapping = cmp.mapping.preset.insert({
-        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-        ['<C-Space>'] = cmp.mapping.complete(),
+        ['<S-tab>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<tab>'] = cmp.mapping.select_next_item(cmp_select),
+        ['<space>'] = cmp.mapping.confirm({ select = true }),
+        ['<enter>'] = cmp.mapping.confirm({ select = true }),
+        ['<C-tab>'] = cmp.mapping.complete(),
     }),
     snippet = {
         expand = function(args)

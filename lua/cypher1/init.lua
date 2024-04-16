@@ -6,6 +6,9 @@ vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 vim.opt.number = true
 vim.opt.relativenumber = true
 
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
