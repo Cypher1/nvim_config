@@ -1,4 +1,4 @@
-require("cypher1.packer")
+require("cypher1.lazy")
 require("cypher1.remap")
 require("cypher1.lsp")
 
@@ -15,6 +15,7 @@ vim.opt.shiftwidth = 2
 
 vim.opt.expandtab = true
 vim.opt.smarttab = true
+vim.opt.expandtab = true
 vim.opt.wrap = false
 
 vim.opt.swapfile = false
