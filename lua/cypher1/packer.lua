@@ -54,4 +54,12 @@ return require('packer').startup(function(use)
 	use('saadparwaiz1/cmp_luasnip')
 	use('L3MON4D3/LuaSnip')
 	use('rafamadriz/friendly-snippets')
+
+  use {
+    "pmizio/typescript-tools.nvim",
+    requires = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
+    config = function()
+      require("typescript-tools").setup {}
+    end,
+  }
 end)
