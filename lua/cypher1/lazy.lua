@@ -1,9 +1,9 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  -- bootstrap lazy.nvim
-  -- stylua: ignore
-  vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
+	-- bootstrap lazy.nvim
+	-- stylua: ignore
+	vim.fn.system({ "git", "clone", "--filter=blob:none", "https://github.com/folke/lazy.nvim.git", "--branch=stable", lazypath })
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
@@ -14,14 +14,14 @@ local plugins = {
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.6",
 		-- or                            , branch = '0.1.x',
-		requires = { { "nvim-lua/plenary.nvim" } },
+		dependencies = { { "nvim-lua/plenary.nvim" } },
 	},
 
 	-- Colorschemes
 	"ratazzi/blackboard.vim",
 	"marko-cerovac/material.nvim",
 
-	{ "rose-pine/neovim", as = "rose-pine" },
+	{ "rose-pine/neovim", name = "rose-pine" },
 
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -43,7 +43,15 @@ local plugins = {
 	"tpope/vim-repeat", -- Repetitions
 	"roxma/vim-window-resize-easy", -- Resize windows
 	"tmhedberg/matchit", -- % Match based jumping
-	"tpope/vim-eunuch", -- Unix built in
+	{
+		"chrisgrieser/nvim-genghis",
+		event = { "VeryLazy" },
+		dependencies = {
+			"stevearc/dressing.nvim",
+			"hrsh7th/nvim-cmp",
+			"hrsh7th/cmp-omni",
+		},
+	}, -- Unix built in
 	-- Tools
 	"AndrewRadev/switch.vim", -- Switch t->f
 	"nvim-tree/nvim-tree.lua", -- File manager
@@ -94,14 +102,14 @@ local opts = {
 		rtp = {
 			-- disable some rtp plugins
 			disabled_plugins = {
-				"gzip",
+				-- "gzip",
 				-- "matchit",
 				-- "matchparen",
 				-- "netrwPlugin",
-				"tarPlugin",
+				-- "tarPlugin",
 				"tohtml",
 				"tutor",
-				"zipPlugin",
+				-- "zipPlugin",
 			},
 		},
 	},
