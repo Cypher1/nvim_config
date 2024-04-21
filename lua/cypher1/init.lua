@@ -48,16 +48,3 @@ vim.g.netrw_winsize = 25
 
 vim.g.fzf_history_dir = '~/.local/share/fzf-history'
 vim.g.fzf_buffers_jump = 1
-
--- Command for git grep
--- - fzf#vim#grep(command, with_column, [options], [fullscreen])
-vim.cmd([[command! -bang -nargs=* GGrep
-  \ call fzf#vim#grep(
-  \   'git grep --line-number '.shellescape(<q-args>), 0,
-  \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
-]])
-
--- Likewise, Files command with preview window
-vim.cmd([[command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-  ]])
