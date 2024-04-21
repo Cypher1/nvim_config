@@ -15,14 +15,58 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 local plugins = {
-  "wbthomason/packer.nvim",
-
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.6",
     -- or                            , branch = '0.1.x',
-    dependencies = { {
-      "nvim-lua/plenary.nvim" } },
+    dependencies = {
+      { "nvim-lua/plenary.nvim" }
+    },
+    keys = {
+      {
+        '<C-p>',
+        function()
+          require('telescope.builtin').live_grep()
+        end,
+      },
+      {
+        '<leader>ff',
+        function()
+          require('telescope.builtin').find_files()
+        end,
+      },
+      {
+        '<leader>pf',
+        function()
+          require('telescope.builtin').find_files()
+        end,
+      },
+      {
+        '<leader>gf',
+        function()
+          require('telescope.builtin').git_files()
+        end,
+      },
+      {
+        '<leader>fb',
+        function()
+          require('telescope.builtin').buffers()
+        end,
+      },
+      {
+        '<leader>fh',
+        function()
+          require('telescope.builtin').help_tags()
+        end,
+      },
+      {
+        '<leader>ps',
+        function()
+          require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") });
+        end,
+        desc = "Project search",
+      },
+    }
   },
 
   -- Colorschemes
@@ -40,8 +84,41 @@ local plugins = {
       "VeryLazy"
     },
     build = ":TSUpdate",
-  },
+    config = function()
+      require('nvim-treesitter.configs').setup {
+        -- A list of parser names, or "all" (the five listed parsers should always be installed)
+        ensure_installed = {
+          "c",
+          "cpp",
+          -- "help",
+          "javascript",
+          "lua",
+          "query",
+          "rust",
+          "sql",
+          "typescript",
+          "vim",
+          "vimdoc",
+        },
 
+        -- Install parsers synchronously (only applied to `ensure_installed`)
+        sync_install = false,
+
+        -- Automatically install missing parsers when entering buffer
+        -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+        auto_install = true,
+
+        highlight = {
+          enable = true,
+
+          -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+          -- Using this option may slow down your editor, and you may see some duplicate highlights.
+          -- Instead of true it can also be a list of languages
+          additional_vim_regex_highlighting = false,
+        },
+      }
+    end
+  },
   {
     "theprimeagen/harpoon",
     keys = {
@@ -107,7 +184,8 @@ local plugins = {
   {
     "tpope/vim-fugitive",
     keys = {
-      {"<C-G>", "<ESC>:Gblame<CR>", desc="Open git blame"},
+      { "<C-G>", "<cmd>Git blame<cr>", desc="Open git blame"},
+      { "<leader>gs","<cmd>Git<cr>", desc="Git commands" },
     }
   },
 
@@ -118,24 +196,27 @@ local plugins = {
   },
   {
     "junegunn/fzf.vim",
+    event = {
+      "VeryLazy"
+    },
     keys = {
-      {"<C-O>", "<ESC>:GFiles<CR>", desc="Search git files"},
-      {"<C-F>", "<ESC>:GGrep<CR>", desc="Search git lines"},
-      {"<C-B>", "<ESC>:Buffers<CR>", desc="Search open guffers"},
+      {"<C-O>", "<cmd>GFiles<CR>", desc="Search git files"},
+      {"<C-F>", "<cmd>GGrep<CR>", desc="Search git lines"},
+      {"<C-B>", "<cmd>Buffers<CR>", desc="Search open guffers"},
     },
     config = function ()
-        -- Command for git grep
-        -- - fzf#vim#grep(command, with_column, [options], [fullscreen])
-        vim.cmd([[command! -bang -nargs=* GGrep
-          \ call fzf#vim#grep(
-          \   'git grep --line-number '.shellescape(<q-args>), 0,
-          \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
-        ]])
+      -- Command for git grep
+      -- - fzf#vim#grep(command, with_column, [options], [fullscreen])
+      vim.cmd([[command! -bang -nargs=* GGrep
+      \ call fzf#vim#grep(
+      \   'git grep --line-number '.shellescape(<q-args>), 0,
+      \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
+      ]])
 
-        -- Likewise, Files command with preview window
-        vim.cmd([[command! -bang -nargs=? -complete=dir Files
-          \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
-          ]])
+      -- Likewise, Files command with preview window
+      vim.cmd([[command! -bang -nargs=? -complete=dir Files
+      \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+      ]])
     end
   },
 

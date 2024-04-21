@@ -1,5 +1,5 @@
-require("cypher1.lazy")
 require("cypher1.remap")
+require("cypher1.lazy")
 require("cypher1.lsp")
 
 -- vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
@@ -48,3 +48,14 @@ vim.g.netrw_winsize = 25
 
 vim.g.fzf_history_dir = '~/.local/share/fzf-history'
 vim.g.fzf_buffers_jump = 1
+
+function Colors(color)
+	-- color = color or "material-deep-ocean"
+	color = color or "rose-pine-main"
+	vim.cmd.colorscheme(color)
+
+	vim.api.nvim_set_hl(0, "Normal", { bg = "black" })
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "black" })
+end
+
+Colors()
