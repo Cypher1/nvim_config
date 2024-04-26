@@ -231,8 +231,7 @@ local plugins = {
   -- Tweaks & Fixes
   "ConradIrwin/vim-bracketed-paste", -- Paste properly
   "tpope/vim-repeat", -- Repetitions
-  "roxma/vim-window-resize-easy", -- Resize windows
-  "tmhedberg/matchit", -- % Match based jumping
+  { "roxma/vim-window-resize-easy", keys = { "<c-w>" }, }, -- Resize windows
   {
     "chrisgrieser/nvim-genghis",
     event = {
