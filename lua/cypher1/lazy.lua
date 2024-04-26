@@ -168,9 +168,6 @@ local plugins = {
         desc="Go to file 4"
       },
     },
-    event = {
-      "VeryLazy"
-    },
   },
   {
     "mbbill/undotree",
@@ -275,6 +272,10 @@ local plugins = {
     dependencies = {
       "nvim-lua/plenary.nvim",
       "neovim/nvim-lspconfig",
+    },
+    ft = {
+      "typescript",
+      "javascript",
     },
     config = function()
       require("typescript-tools").setup({})
