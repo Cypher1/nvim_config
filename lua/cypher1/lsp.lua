@@ -78,13 +78,13 @@ local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
 -- this is the function that loads the extra snippets to luasnip
 -- from rafamadriz/friendly-snippets
-require('luasnip.loaders.from_vscode').lazy_load()
+-- require('luasnip.loaders.from_vscode').lazy_load()
 
 cmp.setup({
     sources = {
         {name = 'path'},
         {name = 'nvim_lsp'},
-        {name = 'luasnip', keyword_length = 2},
+        -- {name = 'luasnip', keyword_length = 2},
         {name = 'buffer', keyword_length = 3},
     },
     mapping = cmp.mapping.preset.insert({
@@ -93,10 +93,10 @@ cmp.setup({
         ['<enter>'] = cmp.mapping.confirm({ select = true }),
         ['<C-tab>'] = cmp.mapping.complete(),
     }),
-    snippet = {
-        expand = function(args)
-            require('luasnip').lsp_expand(args.body)
-        end,
-    },
+    -- snippet = {
+        -- expand = function(args)
+            -- require('luasnip').lsp_expand(args.body)
+        -- end,
+    -- },
 })
 
