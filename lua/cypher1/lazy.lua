@@ -174,7 +174,13 @@ local plugins = {
   },
   {
     "mbbill/undotree",
-    event = "VeryLazy",
+    cmd = {
+      "UndotreeFocus",
+      "UndotreeHide",
+      "UndotreePersistUndo",
+      "UndotreeShow",
+      "UndotreeToggle",
+    },
     keys = {
       {
         '<leader>u',
