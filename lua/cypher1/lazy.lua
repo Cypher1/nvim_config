@@ -22,6 +22,9 @@ local plugins = {
     dependencies = {
       { "nvim-lua/plenary.nvim" }
     },
+    event = {
+      "VeryLazy"
+    },
     keys = {
       {
         '<C-p>',
@@ -123,7 +126,7 @@ local plugins = {
     "theprimeagen/harpoon",
     keys = {
       {
-        "<leader>a",
+        "<leader>h",
         function()
           require("harpoon.mark").add_file()
         end,
@@ -196,8 +199,10 @@ local plugins = {
   },
   {
     "junegunn/fzf.vim",
-    event = {
-      "VeryLazy"
+    cmd = {
+      "Buffers",
+      "GFiles",
+      "GGrep",
     },
     keys = {
       {"<C-O>", "<cmd>GFiles<CR>", desc="Search git files"},
@@ -213,8 +218,8 @@ local plugins = {
       \   { 'dir': systemlist('git rev-parse --show-toplevel')[0] }, <bang>0)
       ]])
 
-      -- Likewise, Files command with preview window
-      vim.cmd([[command! -bang -nargs=? -complete=dir Files
+      -- Likewise, GFiles command with preview window
+      vim.cmd([[command! -bang -nargs=? -complete=dir GFiles
       \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
       ]])
     end
@@ -237,15 +242,15 @@ local plugins = {
     },
   }, -- Unix built in
   -- Tools
-  "AndrewRadev/switch.vim", -- Switch t->f
+  { "AndrewRadev/switch.vim", keys = { "gs" } }, -- Switch t->f
   "nvim-tree/nvim-tree.lua", -- File manager
   "mhinz/vim-signify", -- Sign column diffs
-  "ap/vim-css-color", -- Show Colors in CSS
+  { "ap/vim-css-color", event = "VeryLazy" }, -- Show Colors in CSS
   "google/vim-searchindex", -- Count search solutions
 
   -- Format / Language Specifics
-  "chrisbra/csv.vim", -- CSV
-  "sbdchd/neoformat", -- Autoformat (includes clang-format,
+  { "chrisbra/csv.vim", ft = "csv" }, -- CSV
+  { "sbdchd/neoformat", cmd = { "Neoformat" } }, -- Autoformat (includes clang-format,
 
   -- LSP stuff
   "neovim/nvim-lspconfig",
