@@ -81,6 +81,13 @@ local plugins = {
   },
 
   {
+    "NeogitOrg/neogit",
+    config = function ()
+      require("neogit").setup()
+    end
+  },
+
+  {
     "nvim-treesitter/nvim-treesitter",
     version = false,
     event = {
