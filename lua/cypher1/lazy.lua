@@ -73,8 +73,8 @@ local plugins = {
   },
 
   -- Colorschemes
-  "ratazzi/blackboard.vim",
-  "marko-cerovac/material.nvim",
+  -- "ratazzi/blackboard.vim",
+  -- "marko-cerovac/material.nvim",
 
   {
     "rose-pine/neovim", name = "rose-pine"
