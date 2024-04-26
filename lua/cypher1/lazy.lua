@@ -333,7 +333,7 @@ local plugins = {
   "hrsh7th/cmp-path",
   -- "saadparwaiz1/cmp_luasnip",
   -- "L3MON4D3/LuaSnip",
-  "rafamadriz/friendly-snippets",
+  -- "rafamadriz/friendly-snippets",
 
   {
     "pmizio/typescript-tools.nvim",
