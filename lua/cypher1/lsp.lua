@@ -91,7 +91,7 @@ cmp.setup({
         ['<S-tab>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<tab>'] = cmp.mapping.select_next_item(cmp_select),
         ['<enter>'] = cmp.mapping.confirm({ select = true }),
-        ['<left>'] = cmp.mapping.complete(),
+        ['<right>'] = cmp.mapping.complete(),
     }),
     -- snippet = {
         -- expand = function(args)
