@@ -196,6 +196,9 @@ local plugins = {
   },
   {
     "tpope/vim-fugitive",
+    cmd = {
+      "Git",
+    },
     keys = {
       { "<C-G>", "<cmd>Git blame<cr>", desc="Open git blame"},
       { "<leader>gs","<cmd>Git<cr>", desc="Git commands" },
