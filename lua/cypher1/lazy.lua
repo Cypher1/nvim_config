@@ -234,14 +234,83 @@ local plugins = {
   { "roxma/vim-window-resize-easy", keys = { "<c-w>" }, }, -- Resize windows
   {
     "chrisgrieser/nvim-genghis",
-    event = {
-      "VeryLazy"
+    cmd = {
+      "Chmodx",
+      "CopyDirectoryPath",
+      "CopyFilename",
+      "CopyFilepath",
+      "CopyFilepathWithTilde",
+      "CopyRelativeDirectoryPath",
+      "CopyRelativePath",
+      "Duplicate",
+      "Move",
+      "MoveSelectionToNew",
+      "MoveToFolderInCwd",
+      "New",
+      "Rename",
+      "Trash",
+    },
+    keys = {
+      {
+        '<C-1>',
+        function()
+          require('genghis').createNewFile()
+        end,
+      },
+      {
+        '<C-2>',
+        function()
+          require('genghis').renameFile()
+        end,
+      },
+      {
+        '<C-3>',
+        function()
+          require('genghis').duplicateFile()
+        end,
+      },
+      {
+        '<C-4>',
+        function()
+          require('genghis').moveAndRenameFile()
+        end,
+      },
+      {
+        '<C-5>',
+        function()
+          require('genghis').copyRelativePath()
+        end,
+      },
+      {
+        '<C-6>',
+        function()
+          require('genghis').moveSelectionToNewFile()
+        end,
+      },
+      {
+        '<C-7>',
+        function()
+          require('genghis').chmodx()
+        end,
+      },
     },
     dependencies = {
       "stevearc/dressing.nvim",
       "hrsh7th/nvim-cmp",
       "hrsh7th/cmp-omni",
+      "nvim-telescope/telescope.nvim",
     },
+    config = function ()
+      local cmp = require("cmp")
+      cmp.setup.filetype("DressingInput", {
+        sources = cmp.config.sources { { name = "omni" } },
+      })
+      require("dressing").setup {
+        select = {
+          backend = { "telescope" },
+        },
+      }
+    end,
   }, -- Unix built in
   -- Tools
   { "AndrewRadev/switch.vim", keys = { "gs" } }, -- Switch t->f
