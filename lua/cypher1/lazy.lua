@@ -221,16 +221,6 @@ local plugins = {
       }
     },
   },
-  {
-    "tpope/vim-fugitive",
-    cmd = {
-      "Git",
-    },
-    keys = {
-      { "<C-G>", "<cmd>Git blame<cr>", desc="Open git blame"},
-      { "<leader>gs","<cmd>Git<cr>", desc="Git commands" },
-    }
-  },
 
   {
     "junegunn/fzf",
@@ -245,9 +235,9 @@ local plugins = {
       "GGrep",
     },
     keys = {
-      {"<C-O>", "<cmd>GFiles<CR>", desc="Search git files"},
-      {"<C-F>", "<cmd>GGrep<CR>", desc="Search git lines"},
-      {"<C-B>", "<cmd>Buffers<CR>", desc="Search open guffers"},
+      {"<C-o>", "<cmd>GFiles<CR>", desc="Search git files"},
+      {"<C-f>", "<cmd>GGrep<CR>", desc="Search git lines"},
+      {"<C-b>", "<cmd>Buffers<CR>", desc="Search open guffers"},
     },
     config = function ()
       -- Command for git grep

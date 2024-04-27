@@ -5,6 +5,16 @@ vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
+-- Prep for HJKL
+vim.keymap.set("n", "M", "J") -- mnemonic: [M]erge
+vim.keymap.set("n", "<leader>h", "K") -- mnemonic: [h]over
+
+-- HJKL as amplified versions of hjkl
+vim.keymap.set("n", "J", "6j")
+vim.keymap.set("n", "K", "6k")
+vim.keymap.set("n", "H", "0^")
+vim.keymap.set("n", "L", "$")
+
 -- Buffer management
 vim.keymap.set("n", "<leader>w", vim.cmd.write)
 vim.keymap.set("n", "<leader>n", vim.cmd.bnext)
@@ -24,11 +34,6 @@ vim.keymap.set("n", "<C-j>", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<C-k>", "<cmd>cprev<CR>zz")
 vim.keymap.set("n", "<leader>j", "<cmd>lnext<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>lprev<CR>zz")
-
-vim.keymap.set("n", "<C-O>", "<ESC>:GFiles<CR>")
-vim.keymap.set("n", "<C-F>", "<ESC>:GGrep<CR>")
-vim.keymap.set("n", "<C-G>", "<ESC>:Gblame<CR>")
-vim.keymap.set("n", "<C-B>", "<ESC>:Buffers<CR>")
 
 vim.keymap.set("n", "Q", "<nop>") -- no more accidental macros
 vim.keymap.set("n", ":", ":nohlsearch<CR>:") -- clear highlight
