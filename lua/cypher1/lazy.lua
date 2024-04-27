@@ -18,7 +18,6 @@ local plugins = {
   {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.6",
-    -- or                            , branch = '0.1.x',
     dependencies = {
       { "nvim-lua/plenary.nvim" }
     },
@@ -84,6 +83,34 @@ local plugins = {
     "NeogitOrg/neogit",
     config = function ()
       require("neogit").setup()
+    end
+  },
+
+  {
+    'tzachar/highlight-undo.nvim',
+    keys = {
+      "<C-r>",
+      "u",
+    },
+    config = function ()
+      require('highlight-undo').setup {
+        duration = 300,
+        undo = {
+          hlgroup = 'HighlightUndo',
+          mode = 'n',
+          lhs = 'u',
+          map = 'undo',
+          opts = {}
+        },
+        redo = {
+          hlgroup = 'HighlightRedo',
+          mode = 'n',
+          lhs = '<C-r>',
+          map = 'redo',
+          opts = {}
+        },
+        highlight_for_count = true,
+      }
     end
   },
 
