@@ -16,6 +16,8 @@ vim.opt.shiftwidth = 2
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
+vim.fn.matchadd("Overnesting", (" "):rep(vim.opt.tabstop:get()*5) .. "  *")
+
 vim.opt.expandtab = true
 vim.opt.smarttab = true
 vim.opt.expandtab = true
@@ -53,12 +55,13 @@ vim.g.fzf_history_dir = '~/.local/share/fzf-history'
 vim.g.fzf_buffers_jump = 1
 
 function Colors(color)
-	-- color = color or "material-deep-ocean"
-	color = color or "rose-pine-main"
-	vim.cmd.colorscheme(color)
+  -- color = color or "material-deep-ocean"
+  color = color or "rose-pine-main"
+  vim.cmd.colorscheme(color)
 
-	vim.api.nvim_set_hl(0, "Normal", { bg = "black" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "black" })
+  vim.api.nvim_set_hl(0, "Overnesting", { bg = "#500000" })
+  vim.api.nvim_set_hl(0, "Normal", { bg = "black" })
+  vim.api.nvim_set_hl(0, "NormalFloat", { bg = "black" })
 end
 
 Colors()
