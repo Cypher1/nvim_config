@@ -51,7 +51,7 @@ vim.keymap.set("n", ":", ":nohlsearch<CR>:") -- clear highlight
 
 vim.keymap.set(
   "n",
-  "<leader>g",
+  "<leader>c",
   "/\\(<<<<<<<\\|=======\\|>>>>>>>\\||||||||\\)/\n"
 )
 
