@@ -16,7 +16,8 @@ vim.opt.shiftwidth = 2
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
-vim.fn.matchadd("Overnesting", (" "):rep(vim.opt.tabstop:get()*5) .. "  *")
+vim.fn.matchadd("Overnesting", "^" .. (" "):rep(vim.opt.tabstop:get()*5) .. " *")
+vim.fn.matchadd("Trailing", " " .. " *$")
 
 vim.opt.expandtab = true
 vim.opt.smarttab = true
@@ -60,6 +61,7 @@ function Colors(color)
   vim.cmd.colorscheme(color)
 
   vim.api.nvim_set_hl(0, "Overnesting", { bg = "#400000" })
+  vim.api.nvim_set_hl(0, "Trailing", { bg = "#600000" })
   vim.api.nvim_set_hl(0, "Normal", { bg = "black" })
   vim.api.nvim_set_hl(0, "NormalFloat", { bg = "black" })
 end
