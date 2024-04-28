@@ -393,7 +393,12 @@ local plugins = {
     end,
   },
   -- add LazyVim and import its plugins
-  "LazyVim/LazyVim",
+  {
+    "LazyVim/LazyVim",
+    keys = {
+      { "<C-l>", "<cmd>Lazy<CR>", desc="Open the package manager" }
+    }
+  },
 }
 
 local opts = {
