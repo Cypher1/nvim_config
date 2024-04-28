@@ -207,6 +207,13 @@ local plugins = {
     },
   },
   {
+    "tpope/vim-speeddating",
+    keys = {
+      "<C-a>",
+      "<C-x>",
+    }
+  },
+  {
     "mbbill/undotree",
     cmd = {
       "UndotreeFocus",
