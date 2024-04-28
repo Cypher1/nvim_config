@@ -350,7 +350,13 @@ local plugins = {
     end,
   }, -- Unix built in
   -- Tools
-  { "AndrewRadev/switch.vim", keys = { "gs" } }, -- Switch t->f
+  {
+    "AndrewRadev/switch.vim",
+    keys = {
+      { "<leader>1", "<cmd>Switch<CR>", desc="Switch common literals or expressions" },
+      { "<leader>!", "<cmd>SwitchReverse<CR>", desc="Switch common literals or expressions back" },
+    }
+  }, -- Switch t->f
   "nvim-tree/nvim-tree.lua", -- File manager
   "mhinz/vim-signify", -- Sign column diffs
   { "ap/vim-css-color", ft = { "css", "javascript", "typescript", "html", "markdown" } }, -- Show Colors in CSS
