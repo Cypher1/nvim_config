@@ -90,7 +90,7 @@ cmp.setup({
     mapping = cmp.mapping.preset.insert({
         ['<S-tab>'] = cmp.mapping.select_prev_item(cmp_select),
         ['<tab>'] = cmp.mapping.select_next_item(cmp_select),
-        ['<enter>'] = cmp.mapping.confirm({ select = true }),
+        ['<cr>'] = cmp.mapping.confirm({ select = true }),
         ['<right>'] = cmp.mapping.complete(),
     }),
     -- snippet = {
