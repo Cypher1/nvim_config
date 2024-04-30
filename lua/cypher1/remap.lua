@@ -1,9 +1,18 @@
 vim.g.mapleader = " "
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
--- Move the visual selection
+-- 'Shove': Move the visual selection
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>", {silent=true})
+vim.keymap.set("n", "˚", ":silent! m .-2<CR>", {silent=true})
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>", {silent=true})
+vim.keymap.set("n", "∆", ":m .+1<CR>", {silent=true})
+-- These work for all but the first and last characters
+vim.keymap.set("n", "<A-h>", "ylxhP", {silent=true})
+vim.keymap.set("n", "˙", "ylxhP", {silent=true})
+vim.keymap.set("n", "<A-l>", "ylxp", {silent=true})
+vim.keymap.set("n", "¬", "ylxp", {silent=true})
 
 -- Prep for HJKL
 vim.keymap.set("n", "M", "J") -- mnemonic: [M]erge
@@ -51,7 +60,7 @@ vim.keymap.set("n", ":", ":nohlsearch<CR>:") -- clear highlight
 
 vim.keymap.set(
   "n",
-  "<leader>c",
+  "<leader>g",
   "/\\(<<<<<<<\\|=======\\|>>>>>>>\\||||||||\\)/\n"
 )
 
