@@ -76,7 +76,7 @@ local plugins = {
   {
     "NeogitOrg/neogit",
     keys = {
-      {"<C-m>", "<cmd>Neogit<CR>", desc="Run an interactive git session"},
+      {"<C-g>", "<cmd>Neogit<CR>", desc="Run an interactive git session"},
     },
     cmd = {
       "Neogit",
