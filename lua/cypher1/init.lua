@@ -40,6 +40,28 @@ vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
 
+-- Make zsh files recognized as sh for bash-ls & treesitter
+vim.filetype.add {
+	extension = {
+		zsh = "sh",
+		sh = "sh", -- force sh-files with zsh-shebang to still get sh as filetype
+	},
+	filename = {
+		[".zshrc"] = "sh",
+		[".zshenv"] = "sh",
+	},
+}
+
+vim.filetype.add {
+	extension = {
+		tk = "tako",
+	},
+	filename = {
+		[".tk"] = "tako",
+		[".tako"] = "tako",
+	},
+}
+
 -- NvimTree: Disable netrw at the very start of your init.lua (strongly advised)
 -- TODO: Get nvim-tree working instead of Ex
 -- vim.g.loaded_netrw = 1
