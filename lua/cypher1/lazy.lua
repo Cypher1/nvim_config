@@ -78,6 +78,9 @@ local plugins = {
     keys = {
       {"<C-m>", "<cmd>Neogit<CR>", desc="Run an interactive git session"},
     },
+    cmd = {
+      "Neogit",
+    },
     config = function ()
       require("neogit").setup()
     end
