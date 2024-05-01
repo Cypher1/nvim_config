@@ -38,7 +38,7 @@ local plugins = {
         end,
       },
       {
-        '<leader>gf',
+        '<leader>fg',
         function()
           require('telescope.builtin').git_files()
         end,
