@@ -239,43 +239,85 @@ local plugins = {
     },
     keys = {
       {
-        '<C-1>',
+        '¡',
         function()
           require('genghis').createNewFile()
         end,
       },
       {
-        '<C-2>',
+        '<A-1>',
+        function()
+          require('genghis').createNewFile()
+        end,
+      },
+      {
+        '™',
         function()
           require('genghis').renameFile()
         end,
       },
       {
-        '<C-3>',
+        '<A-2>',
+        function()
+          require('genghis').renameFile()
+        end,
+      },
+      {
+        '£',
         function()
           require('genghis').duplicateFile()
         end,
       },
       {
-        '<C-4>',
+        '<A-3>',
+        function()
+          require('genghis').duplicateFile()
+        end,
+      },
+      {
+        '¢',
         function()
           require('genghis').moveAndRenameFile()
         end,
       },
       {
-        '<C-5>',
+        '<A-4>',
+        function()
+          require('genghis').moveAndRenameFile()
+        end,
+      },
+      {
+        '∞',
         function()
           require('genghis').copyRelativePath()
         end,
       },
       {
-        '<C-6>',
+        '<A-5>',
+        function()
+          require('genghis').copyRelativePath()
+        end,
+      },
+      {
+        '§',
         function()
           require('genghis').moveSelectionToNewFile()
         end,
       },
       {
-        '<C-7>',
+        '<A-6>',
+        function()
+          require('genghis').moveSelectionToNewFile()
+        end,
+      },
+      {
+        '¶',
+        function()
+          require('genghis').chmodx()
+        end,
+      },
+      {
+        '<A-7>',
         function()
           require('genghis').chmodx()
         end,
