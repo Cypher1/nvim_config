@@ -55,13 +55,6 @@ local plugins = {
           require('telescope.builtin').help_tags()
         end,
       },
-      {
-        '<leader>ps',
-        function()
-          require('telescope.builtin').grep_string({ search = vim.fn.input("Grep > ") });
-        end,
-        desc = "Project search",
-      },
     }
   },
 
