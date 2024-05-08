@@ -349,7 +349,27 @@ local plugins = {
       { "<leader>!", "<cmd>SwitchReverse<CR>", desc="Switch common literals or expressions back" },
     }
   }, -- Switch t->f
-  "nvim-tree/nvim-tree.lua", -- File manager
+  {
+    "nvim-tree/nvim-tree.lua",
+    cmds = {
+      "NvimTreeToggle",
+      "NvimTreeFocus",
+      "NvimTreeFindFile",
+      "NvimTreeCollapse",
+    },
+    keys = {
+      { "<leader>t", "<cmd>NvimTreeToggle<CR>", desc="Toggle the file tree" },
+      { "<leader>ft", "<cmd>NvimTreeFindFile<CR>", desc="Find the current file in the file tree" },
+      { "<leader>ct", "<cmd>NvimTreeCollapse<CR>", desc="Collapse the file tree" },
+    },
+    config = function ()
+      vim.g.loaded_netrw = 1
+      vim.g.loaded_netrwPlugin = 1
+
+      -- empty setup using defaults
+      require("nvim-tree").setup()
+    end,
+  }, -- File manager
   "mhinz/vim-signify", -- Sign column diffs
   { "ap/vim-css-color", ft = { "css", "javascript", "typescript", "html", "markdown" } }, -- Show Colors in CSS
   "google/vim-searchindex", -- Count search solutions
