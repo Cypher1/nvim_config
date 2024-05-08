@@ -36,7 +36,7 @@ vim.keymap.set("n", "<leader>q", vim.cmd.bdelete)
 -- vim.keymap.set("n", "<leader>Y", "\"+Y")
 
 -- Don't override the clipboard when removing
-vim.keymap.set("n", "x", '"_x')
+-- vim.keymap.set("n", "x", '"_x')
 -- Don't override the clipboard when changing
 vim.keymap.set("n", "c", '"_c')
 
