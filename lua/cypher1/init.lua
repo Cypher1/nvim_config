@@ -77,7 +77,7 @@ function Colors(color)
   vim.fn.matchadd("Trailing", " " .. " *$")
   vim.cmd.colorscheme(color)
 
-  vim.api.nvim_set_hl(0, "Overnesting", { bg = "#400000" })
+  -- vim.api.nvim_set_hl(0, "Overnesting", { bg = "#400000" })
   vim.api.nvim_set_hl(0, "Trailing", { bg = "#600000" })
   vim.api.nvim_set_hl(0, "Normal", { bg = "black" })
   vim.api.nvim_set_hl(0, "NormalFloat", { bg = "black" })
