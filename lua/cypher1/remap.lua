@@ -14,6 +14,9 @@ vim.keymap.set("n", "˙", "ylxhP", {silent=true})
 vim.keymap.set("n", "<A-l>", "ylxp", {silent=true})
 vim.keymap.set("n", "¬", "ylxp", {silent=true})
 
+vim.keymap.set("n", "!", ":set relativenumber!<CR>", {silent=true})
+vim.keymap.set("n", "<C-1>", ":set number!<CR>", {silent=true})
+
 -- Prep for HJKL
 vim.keymap.set("n", "M", "J") -- mnemonic: [M]erge
 vim.keymap.set("n", "<leader>h", "K") -- mnemonic: [h]over

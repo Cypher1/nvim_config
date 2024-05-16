@@ -85,7 +85,40 @@ local plugins = {
       require("neogit").setup()
     end
   },
-
+  {
+    "emmanueltouzery/agitator.nvim",
+    dependencies = {
+      "sindrets/diffview.nvim",        -- optional - Diff integration
+    },
+    cmd = {},
+    keys = {
+      {
+        '<leader>/',
+        function()
+          require('agitator').git_blame_toggle()
+        end,
+      },
+      {
+        '<c-h>',
+        function()
+          require('agitator').git_time_machine()
+        end,
+      },
+      {
+        '<leader>?',
+        function()
+          local commit_sha = require('agitator').git_blame_commit_for_line()
+          if commit_sha == nil then
+            vim.notify("Not in git directory")
+          elseif commit_sha == "00000000" then
+            vim.notify("Not commited")
+          else
+            vim.cmd("DiffviewOpen " .. commit_sha .. "^.." .. commit_sha)
+          end
+        end,
+      },
+    }
+  },
   {
     'tzachar/highlight-undo.nvim',
     keys = {
