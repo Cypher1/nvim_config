@@ -2,7 +2,7 @@ require("cypher1.remap")
 require("cypher1.lazy")
 require("cypher1.lsp")
 
-vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
+-- vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
 vim.opt.number = true
 vim.opt.relativenumber = true
 
