@@ -411,6 +411,15 @@ local plugins = {
   { "chrisbra/csv.vim", ft = "csv" }, -- CSV
   { "sbdchd/neoformat", cmd = { "Neoformat" } }, -- Autoformat (includes clang-format,
 
+  {
+    "dmmulroy/tsc.nvim",
+    cmd = {
+      "TSC",
+    },
+    config = function ()
+      require('tsc').setup()
+    end,
+  },
   -- LSP stuff
   "neovim/nvim-lspconfig",
   "williamboman/mason.nvim",
