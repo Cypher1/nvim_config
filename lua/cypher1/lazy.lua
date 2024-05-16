@@ -16,6 +16,13 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 local plugins = {
   {
+    "ahmedkhalf/project.nvim",
+    event = "VeryLazy",
+    config = function ()
+      require("project_nvim").setup()
+    end
+  },
+  {
     "nvim-telescope/telescope.nvim",
     tag = "0.1.6",
     dependencies = {
