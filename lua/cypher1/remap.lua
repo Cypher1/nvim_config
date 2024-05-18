@@ -42,6 +42,8 @@ vim.keymap.set("n", "<leader>q", vim.cmd.bdelete)
 -- vim.keymap.set("n", "x", '"_x')
 -- Don't override the clipboard when changing
 vim.keymap.set("n", "c", '"_c')
+-- c_ and c$ appear very similar... so lets map it to a common annoyance
+vim.keymap.set("n", "c_", 'x~:silent! call repeat#set("c_", v:count)<cr>')
 
 vim.keymap.set("n", "dd", function ()
   -- Don't copy empty lines when deleting.
