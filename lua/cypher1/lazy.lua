@@ -108,7 +108,7 @@ local plugins = {
       {
         '<c-h>',
         function()
-          require('agitator').git_time_machine()
+          require('agitator').git_time_machine({use_current_win=true})
         end,
       },
       {
