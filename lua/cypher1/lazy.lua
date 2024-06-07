@@ -89,7 +89,7 @@ local plugins = {
       "Neogit",
     },
     config = function ()
-      require("neogit").setup()
+      require("neogit").setup({})
     end
   },
   {
