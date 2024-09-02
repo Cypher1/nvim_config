@@ -66,13 +66,15 @@ vim.keymap.set(
 )
 
 -- Symbols for Maths, Lean, Coq
-vim.keymap.set("i", "<A-1>", "⊤")
-vim.keymap.set("i", "<A-2>", "⊥")
-vim.keymap.set("i", "<A-3>", "⊢")
-vim.keymap.set("i", "<A-4>", "⊣")
-vim.keymap.set("i", "<A-5>", "→")
-vim.keymap.set("i", "<A-6>", "∧")
-vim.keymap.set("i", "<A-7>", "Π")
-vim.keymap.set("i", "<A-8>", "∀")
-vim.keymap.set("i", "<A-9>", "∃")
-vim.keymap.set("i", "<A-0>", "λ")
+vim.keymap.set("i", "<A-t>", "⊤")
+vim.keymap.set("i", "<A-T>", "⊥")
+vim.keymap.set("i", "<A-g>", "⊢")
+vim.keymap.set("i", "<A-G>", "⊣")
+
+vim.keymap.set("i", "<A-a>", "∧")
+vim.keymap.set("i", "<A-A>", "Π")
+vim.keymap.set("i", "<A-E>", "∀")
+vim.keymap.set("i", "<A-e>", "∃")
+
+vim.keymap.set("i", "<A-y>", "λ")
+vim.keymap.set("i", "<A-Y>", "→")
