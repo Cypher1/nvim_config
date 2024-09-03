@@ -72,7 +72,6 @@ vim.g.fzf_history_dir = '~/.local/share/fzf-history'
 vim.g.fzf_buffers_jump = 1
 
 function Colors(color)
-  -- color = color or "material-deep-ocean"
   color = color or "rose-pine-main"
 
   vim.fn.matchadd("Overnesting", "^" .. (" "):rep(vim.opt.tabstop:get()*6) .. " *")
