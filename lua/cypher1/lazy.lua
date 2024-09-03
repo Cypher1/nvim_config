@@ -138,9 +138,26 @@ local plugins = {
         end,
       },
       {
-        '<c-h>',
+        '<C-h>',
         function()
-          require('agitator').git_time_machine({use_current_win=true})
+          require('agitator').git_time_machine({
+            use_current_win=true,
+            set_custom_shortcuts = function(code_bufnr)
+              vim.keymap.set('n', '<C-h>', function()
+                require"agitator".git_time_machine_previous()
+              end, {buffer = code_bufnr})
+              vim.keymap.set('n', '<C-l>', function()
+                require"agitator".git_time_machine_next()
+              end, {buffer = code_bufnr})
+              vim.keymap.set('n', '<c-y>', function()
+                require"agitator".git_time_machine_copy_sha()
+              end, {buffer = code_bufnr})
+              vim.keymap.set('n', 'q', function()
+                require"agitator".git_time_machine_quit()
+              end, {buffer = code_bufnr})
+            end,
+            popup_last_line = "<C-h> Back | <C-l> Forward | <C-y> Yank SHA | [q]uit"
+          })
         end,
       },
       {
