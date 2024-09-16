@@ -4,13 +4,13 @@ local augroup = vim.api.nvim_create_augroup
 autocmd('LspAttach', {
     group = augroup('user_lsp_attach', {clear = true}),
     callback = function(event)
-        vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, {buffer = event.buf, description = "LSP: Go to definition"})
-        vim.keymap.set('n', '<leader>R', function() vim.lsp.buf.code_action() end, {buffer = event.buf, description = "LSP code action"})
-        vim.keymap.set('n', '<leader>r', function() vim.lsp.buf.rename() end, {buffer = event.buf, description = "LSP rename symbol"})
-        vim.keymap.set('n', '<leader>h', function() vim.lsp.buf.hover() end, {buffer = event.buf, description = "LSP hover"})
-        vim.keymap.set('n', '<leader>l', function() vim.lsp.buf.reference() end, {buffer = event.buf, description = "LSP: Go to reference"})
-        vim.keymap.set('n', '[d', function() vim.diagnostic.goto_next() end, {buffer = event.buf, description = "LSP: Go to next diagnostic"})
-        vim.keymap.set('n', ']d', function() vim.diagnostic.goto_prev() end, {buffer = event.buf, description = "LSP: Go to prev diagnostic"})
+        vim.keymap.set('n', 'gd', function() vim.lsp.buf.definition() end, {buffer = event.buf, desc = "LSP: Go to definition"})
+        vim.keymap.set('n', '<leader>R', function() vim.lsp.buf.code_action() end, {buffer = event.buf, desc = "LSP: code action"})
+        vim.keymap.set('n', '<leader>r', function() vim.lsp.buf.rename() end, {buffer = event.buf, desc = "LSP: rename symbol"})
+        vim.keymap.set('n', '<leader>h', function() vim.lsp.buf.hover() end, {buffer = event.buf, desc = "LSP: hover"})
+        vim.keymap.set('n', '<leader>l', function() vim.lsp.buf.references() end, {buffer = event.buf, desc = "LSP: Go to reference"})
+        vim.keymap.set('n', '[d', function() vim.diagnostic.goto_next() end, {buffer = event.buf, desc = "LSP: Go to next diagnostic"})
+        vim.keymap.set('n', ']d', function() vim.diagnostic.goto_prev() end, {buffer = event.buf, desc = "LSP: Go to prev diagnostic"})
     end,
 })
 
