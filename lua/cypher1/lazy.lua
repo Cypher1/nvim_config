@@ -25,7 +25,7 @@ local plugins = {
     },
     event = "VeryLazy",
     config = function ()
-      vim.fn["context#enable"](1) -- 0 = window, 1 = global
+      -- vim.fn["context#enable"](1) -- 0 = window, 1 = global
     end
   },
   {
@@ -46,13 +46,6 @@ local plugins = {
       -- Keymap to retrieve the venv from a cache (the one previously used for the same project directory).
       { '<leader>vc', '<cmd>VenvSelectCached<cr>' },
     },
-  },
-  {
-    "ahmedkhalf/project.nvim",
-    event = "VeryLazy",
-    config = function ()
-      require("project_nvim").setup()
-    end
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -310,106 +303,105 @@ local plugins = {
   { "roxma/vim-window-resize-easy", keys = { "<c-w>" }, }, -- Resize windows
   {
     "chrisgrieser/nvim-genghis",
-    cmd = {
-      "Chmodx",
-      "CopyDirectoryPath",
-      "CopyFilename",
-      "CopyFilepath",
-      "CopyFilepathWithTilde",
-      "CopyRelativeDirectoryPath",
-      "CopyRelativePath",
-      "Duplicate",
-      "Move",
-      "MoveSelectionToNew",
-      "MoveToFolderInCwd",
-      "New",
-      "Rename",
-      "Trash",
-    },
+    cmd = { "Genghis" },
     keys = {
       {
         '¡',
         function()
           require('genghis').createNewFile()
         end,
+        desc = "Genghis create new file",
       },
       {
         '<A-1>',
         function()
           require('genghis').createNewFile()
         end,
+        desc = "Genghis create new file",
       },
       {
         '™',
         function()
           require('genghis').renameFile()
         end,
+        desc = "Genghis rename file",
       },
       {
         '<A-2>',
         function()
           require('genghis').renameFile()
         end,
+        desc = "Genghis rename file",
       },
       {
         '£',
         function()
           require('genghis').duplicateFile()
         end,
+        desc = "Genghis duplicate file",
       },
       {
         '<A-3>',
         function()
           require('genghis').duplicateFile()
         end,
+        desc = "Genghis duplicate file",
       },
       {
         '¢',
         function()
           require('genghis').moveAndRenameFile()
         end,
+        desc = "Genghis move and rename file",
       },
       {
         '<A-4>',
         function()
           require('genghis').moveAndRenameFile()
         end,
+        desc = "Genghis move and rename file",
       },
       {
         '∞',
         function()
           require('genghis').copyRelativePath()
         end,
+        desc = "Genghis copy relative path",
       },
       {
         '<A-5>',
         function()
           require('genghis').copyRelativePath()
         end,
+        desc = "Genghis copy relative path",
       },
       {
         '§',
         function()
           require('genghis').moveSelectionToNewFile()
         end,
+        desc = "Genghis move selection to new file",
       },
       {
         '<A-6>',
         function()
           require('genghis').moveSelectionToNewFile()
         end,
+        desc = "Genghis move selection to new file",
       },
       {
         '¶',
         function()
           require('genghis').chmodx()
         end,
+        desc = "Genghis change mode executable chmodx",
       },
       {
         '<A-7>',
         function()
           require('genghis').chmodx()
         end,
+        desc = "Genghis change mode executable chmodx",
       },
     },
     dependencies = {
@@ -428,6 +420,7 @@ local plugins = {
           backend = { "telescope" },
         },
       }
+      require("genghis").setup()
     end,
   }, -- Unix built in
   -- Tools
