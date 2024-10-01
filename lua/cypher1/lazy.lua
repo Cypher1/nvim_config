@@ -459,7 +459,7 @@ local plugins = {
     end,
   }, -- File manager
   "mhinz/vim-signify", -- Sign column diffs
-  { "ap/vim-css-color", ft = { "css", "javascript", "typescript", "html", "markdown" } }, -- Show Colors in CSS
+  -- { "ap/vim-css-color", ft = { "css", "javascript", "typescript", "html", "markdown" } }, -- Show Colors in CSS
   "google/vim-searchindex", -- Count search solutions
 
   -- Format / Language Specifics

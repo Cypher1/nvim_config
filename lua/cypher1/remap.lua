@@ -25,7 +25,7 @@ vim.keymap.set("n", "L", "$")
 vim.keymap.set("n", "<leader>w", vim.cmd.write)
 vim.keymap.set("n", "<leader>n", vim.cmd.bnext)
 vim.keymap.set("n", "<leader>m", vim.cmd.bprevious)
-vim.keymap.set("n", "<leader>q", vim.cmd.bdelete)
+vim.keymap.set("n", "<leader>q", ":bn<CR>:bd #<CR>", {silent=true})
 
 -- Clipboard control
 -- vim.keymap.set("n", "<leader>y", "\"+y")
