@@ -16,6 +16,10 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 local plugins = {
   {
+    'mg979/vim-visual-multi',
+    event = "VeryLazy",
+  },
+  {
     "wellle/context.vim",
     cmd = {
       "ContextActivate",
