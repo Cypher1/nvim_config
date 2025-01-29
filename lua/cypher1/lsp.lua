@@ -24,6 +24,27 @@ require('mason-lspconfig').setup({
                 capabilities = lsp_capabilities,
             })
         end,
+        pyright = function()
+            require('lspconfig').pyright.setup({
+                capabilities = lsp_capabilities,
+                settings = {
+                    pylsp = {
+                      plugins = {
+                        pycodestyle = {
+                          enabled = true,
+                          ignore = "W503,E501,C901",
+                        },
+                        mccabe = { enabled = false },
+                        flake8 = {
+                          enabled = true,
+                          ignore = "W503,E501,C901",
+                        },
+                        ruff = { enabled = false },
+                      }
+                    }
+                }
+            })
+        end,
         pylsp = function()
             require('lspconfig').pylsp.setup({
                 capabilities = lsp_capabilities,

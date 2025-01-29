@@ -20,6 +20,92 @@ local plugins = {
     event = "VeryLazy",
   },
   {
+    "epwalsh/obsidian.nvim",
+    version = "*",  -- recommended, use latest release instead of latest commit
+    lazy = true,
+    ft = "markdown",
+    -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
+    -- event = {
+    --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
+    --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/*.md"
+    --   -- refer to `:h file-pattern` for more examples
+    --   "BufReadPre path/to/my-vault/*.md",
+    --   "BufNewFile path/to/my-vault/*.md",
+    -- },
+    dependencies = {
+      -- Required.
+      "nvim-lua/plenary.nvim",
+
+      -- see below for full list of optional dependencies 👇
+    },
+    opts = {
+      disable_frontmatter = true,
+      workspaces = {
+        {
+          name = "notes",
+          path = "~/notes",
+        },
+      },
+      daily_notes = {
+        -- Optional, if you keep daily notes in a separate directory.
+        folder = "diary",
+        -- Optional, if you want to change the date format for the ID of daily notes.
+        date_format = "%Y-%m-%d",
+        -- Optional, if you want to change the date format of the default alias of daily notes.
+        alias_format = "%B %-d, %Y",
+        -- Optional, default tags to add to each new daily note created.
+        default_tags = { "daily-notes" },
+        -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+        template = "templates/diary.md"
+      },
+      templates = {
+        folder = "templates",
+        date_format = "%Y-%m-%d-%a",
+        time_format = "%H:%M",
+        substitutions = {
+          yesterday = function()
+            return os.date("%Y-%m-%d", os.time() - 86400)
+          end,
+          tomorrow = function()
+            return os.date("%Y-%m-%d", os.time() + 86400)
+          end
+        }
+      },
+      ---@param url string
+      follow_url_func = function(url)
+        -- Open the URL in the default web browser.
+        vim.fn.jobstart({"open", url})  -- Mac OS
+        -- vim.fn.jobstart({"xdg-open", url})  -- linux
+        -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
+        -- vim.ui.open(url) -- need Neovim 0.10.0+
+      end,
+      ---@param img string
+      follow_img_func = function(img)
+        vim.fn.jobstart { "qlmanage", "-p", img }  -- Mac OS quick look preview
+        -- vim.fn.jobstart({"xdg-open", url})  -- linux
+        -- vim.cmd(':silent exec "!start ' .. url .. '"') -- Windows
+      end,
+    },
+  },
+  -- {
+  --   'MeanderingProgrammer/render-markdown.nvim',
+  --   -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+  --   -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+  --   dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+  --   ---@module 'render-markdown'
+  --   ---@type render.md.UserConfig
+  --   opts = {},
+  -- },
+  -- {
+  --   "OXY2DEV/markview.nvim",
+  --   lazy = false,      -- Recommended
+  --   ft = "markdown", -- If you decide to lazy-load anyway
+  --   dependencies = {
+  --       "nvim-treesitter/nvim-treesitter",
+  --       "nvim-tree/nvim-web-devicons"
+  --   }
+  -- },
+  {
     "wellle/context.vim",
     cmd = {
       "ContextActivate",
