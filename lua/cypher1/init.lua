@@ -3,6 +3,7 @@ require("cypher1.lazy")
 require("cypher1.lsp")
 
 -- vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
+vim.opt.conceallevel = 1
 vim.opt.number = true
 vim.opt.relativenumber = true
 
@@ -44,6 +45,15 @@ vim.opt.updatetime = 50
 vim.opt.colorcolumn = "80"
 
 -- Make zsh files recognized as sh for bash-ls & treesitter
+vim.filetype.add {
+	extension = {
+		edb = "yaml",
+	},
+	filename = {
+		[".edb"] = "yaml",
+	},
+}
+
 vim.filetype.add {
 	extension = {
 		zsh = "sh",
