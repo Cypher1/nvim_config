@@ -20,6 +20,9 @@ local plugins = {
     event = "VeryLazy",
   },
   {
+    'wsdjeg/vim-fetch',
+  },
+  {
     "epwalsh/obsidian.nvim",
     version = "*",  -- recommended, use latest release instead of latest commit
     lazy = true,
