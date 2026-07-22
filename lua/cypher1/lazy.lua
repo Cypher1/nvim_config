@@ -12,7 +12,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     lazypath
   })
 end
-vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
+vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
   {
@@ -120,6 +120,11 @@ local plugins = {
     config = function ()
       -- vim.fn["context#enable"](1) -- 0 = window, 1 = global
     end
+  },
+  {
+    "manuuurino/autoread.nvim",
+    cmd = "Autoread",
+    opts = {},
   },
   {
     'linux-cultist/venv-selector.nvim',
@@ -292,9 +297,7 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     version = false,
-    event = {
-      "VeryLazy"
-    },
+    lazy = false,
     build = ":TSUpdate",
     config = function()
       require('nvim-treesitter.configs').setup {
@@ -302,7 +305,6 @@ local plugins = {
         ensure_installed = {
           "c",
           "cpp",
-          -- "help",
           "javascript",
           "lua",
           "query",
